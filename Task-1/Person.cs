@@ -1,0 +1,11 @@
+﻿namespace Task_1;
+
+class Person
+{
+    public string Name { get; init; }
+
+    public Person(string name)
+    {
+        Name = name;
+    }
+}
