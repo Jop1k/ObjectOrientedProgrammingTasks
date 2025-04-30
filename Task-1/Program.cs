@@ -10,6 +10,11 @@ class Program
         string[] names = CreateListOfNames(count);
 
         Person[] persons = CreatePersons(names);
+
+        foreach (Person person in persons)
+        {
+            Console.WriteLine($"Привет! Меня зовут {person}");
+        }
     }
     static string[] CreateListOfNames(int count)
     {
