@@ -4,10 +4,24 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Введите количество создаваемых вами Person:");
+        Console.Write("Введите количество создаваемых вами Person: ");
         int count = Validator(Console.ReadLine()!);
 
-        Person[] persons = CreatePersons(["test-1", "test-2"]);
+        string[] names = CreateListOfNames(count);
+
+        Person[] persons = CreatePersons(names);
+    }
+    static string[] CreateListOfNames(int count)
+    {
+        string[] names = new string[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            Console.Write($"Введите {i + 1} имя: ");
+            names[i] = Console.ReadLine()!;
+        }
+
+        return names;
     }
     static Person[] CreatePersons(string[] names)
     {
@@ -31,7 +45,7 @@ class Program
                 return number;
             }
 
-            Console.WriteLine("Введите число или цифру:");
+            Console.Write("Введите число или цифру: ");
             str = Console.ReadLine()!;
         }
     }
