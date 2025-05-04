@@ -5,11 +5,9 @@ class Program
     static void Main()
     {
         Console.Write("Введите количество создаваемых вами Person: ");
-        int count = Validator.NumberValidator(Console.ReadLine()!);
+        int count = Validators.NumberValidator(Console.ReadLine()!);
 
-        string[] names = CreateListOfNames(count);
-
-        Person[] persons = CreatePersons(names);
+        Person[] persons = CreatePersons(CreateListOfNames(count));
 
         foreach (Person person in persons)
         {
@@ -23,7 +21,7 @@ class Program
         for (int i = 0; i < count; i++)
         {
             Console.Write($"Введите {i + 1} имя: ");
-            names[i] = Console.ReadLine()!;
+            names[i] = Validators.NameValidator(Console.ReadLine()!)!;
         }
 
         return names;
