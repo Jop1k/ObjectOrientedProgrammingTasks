@@ -5,7 +5,7 @@ class Program
     static void Main()
     {
         Console.Write("Введите количество создаваемых вами Person: ");
-        int count = Validator(Console.ReadLine()!);
+        int count = Validator.NumberValidator(Console.ReadLine()!);
 
         string[] names = CreateListOfNames(count);
 
@@ -38,20 +38,5 @@ class Program
         }
 
         return persons;
-    }
-    static int Validator(string str)
-    {
-        while (true)
-        {
-            int number;
-
-            if (int.TryParse(str, out number))
-            {
-                return number;
-            }
-
-            Console.Write("Введите число или цифру: ");
-            str = Console.ReadLine()!;
-        }
     }
 }
