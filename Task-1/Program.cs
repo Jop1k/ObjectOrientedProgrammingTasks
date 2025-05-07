@@ -1,4 +1,4 @@
-﻿namespace Task_1;
+﻿namespace ObjectOrientedProgrammingTasks;
 
 class Program
 {
@@ -7,16 +7,17 @@ class Program
         Console.Write("Введите количество создаваемых вами Person: ");
         int count = Validators.NumberValidator(Console.ReadLine()!);
 
-        Person[] persons = CreatePersons(CreateListOfNames(count));
+        var persons = CreatePersons(CreateListOfNames(count));
 
-        foreach (Person person in persons)
+        foreach (var person in persons)
         {
             Console.WriteLine($"Привет! Меня зовут {person}");
         }
     }
+
     static string[] CreateListOfNames(int count)
     {
-        string[] names = new string[count];
+        var names = new string[count];
 
         for (int i = 0; i < count; i++)
         {
@@ -26,9 +27,10 @@ class Program
 
         return names;
     }
+
     static Person[] CreatePersons(string[] names)
     {
-        Person[] persons = new Person[names.Length];
+        var persons = new Person[names.Length];
 
         for (int i = 0; i < persons.Length; ++i)
         {

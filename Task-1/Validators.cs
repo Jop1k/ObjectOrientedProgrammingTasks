@@ -1,4 +1,4 @@
-﻿namespace Task_1;
+﻿namespace ObjectOrientedProgrammingTasks;
 
 static class Validators
 {
@@ -13,7 +13,7 @@ static class Validators
                 return number;
             }
 
-            Console.Write("Введите число или цифру: ");
+            Console.Write("Введите число: ");
             str = Console.ReadLine()!;
         }
     }
