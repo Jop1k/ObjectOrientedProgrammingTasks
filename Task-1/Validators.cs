@@ -1,9 +1,11 @@
-﻿namespace Task_1;
+﻿namespace ObjectOrientedProgrammingTasks;
 
 static class Validators
 {
-    public static int NumberValidator(string str)
+    public static int NumberValidator()
     {
+        string str = Console.ReadLine()!;
+
         while (true)
         {
             int number;
@@ -13,14 +15,15 @@ static class Validators
                 return number;
             }
 
-            Console.Write("Введите число или цифру: ");
+            Console.Write("Введите число: ");
             str = Console.ReadLine()!;
         }
     }
 
-    public static string NameValidator(string name)
+    public static string NameValidator()
     {
         bool flag;
+        string name = Console.ReadLine()!;
 
         while (true)
         {
@@ -38,7 +41,7 @@ static class Validators
 
             foreach (char c in name)
             {
-                if (!('а' <= c && c <= 'я'))
+                if (!('а' <= c && c <= 'я' || c == 'ё'))
                 {
                     Console.WriteLine("Введите имя используя только русские буквы");
                     Console.Write("Повторно введите имя: ");

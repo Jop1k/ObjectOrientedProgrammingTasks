@@ -1,16 +1,10 @@
-﻿namespace Task_1;
+﻿namespace ObjectOrientedProgrammingTasks;
 
-class Person
+internal class Person
 {
     public string Name { get; init; }
 
-    public Person(string name)
-    {
-        Name = name;
-    }
+    public Person (string name) => Name = name;
 
-    public override string ToString()
-    {
-        return Name;
-    }
+    public override string ToString() => Name;
 }
