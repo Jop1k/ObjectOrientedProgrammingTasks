@@ -4,10 +4,9 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Введите количество создаваемых вами Person: ");
         int amount = Validators.NumberValidator();
 
-        var persons = Creator.CreateListOfNames(amount).Select(name => new Person(name)).ToArray();
+        var persons = Utils.CreateListOfNames(amount).Select(name => new Person(name));
 
         foreach (var person in persons)
         {
