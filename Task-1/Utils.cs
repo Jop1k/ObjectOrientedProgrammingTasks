@@ -8,9 +8,17 @@ internal static class Utils
 
         for (int i = 0; i < amount; i++)
         {
-            names[i] = Validators.NameValidator();
+            names[i] = NameValidator.Validation();
         }
 
         return names;
+    }
+
+    public static void PrintEnumerable<T>(IEnumerable<T> list, string text)
+    {
+        foreach (var value in list)
+        {
+            Console.WriteLine($"{text} {value}");
+        }
     }
 }
