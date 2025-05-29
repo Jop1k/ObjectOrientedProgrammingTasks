@@ -1,13 +1,16 @@
-﻿namespace ObjectOrientedProgrammingTasks;
+﻿global using ValidatorsLibrary;
 
-class Program
+namespace FirstTask;
+
+internal class Program
 {
     static void Main()
     {
         int amount = NumberValidator.Validation("Введите количество создаваемых вами Person: ");
 
-        var persons = Utils.CreateListOfNames(amount).Select(name => new Person(name));
-
-        Utils.PrintEnumerable(persons, "Привет! Меня зовут");
+        Helper.CreateListOfNames(amount)
+            .Select(name => new Person(name))
+            .ToList()
+            .ForEach(person => Console.WriteLine($"Привет! Меня зовут {person}"));
     }
 }

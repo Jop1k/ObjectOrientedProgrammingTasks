@@ -1,6 +1,6 @@
-﻿namespace ObjectOrientedProgrammingTasks;
+﻿namespace ValidatorsLibrary;
 
-internal class NameValidator
+public static class NameValidator
 {
     private const int _minLength = 2;
     private const int _maxLength = 16;

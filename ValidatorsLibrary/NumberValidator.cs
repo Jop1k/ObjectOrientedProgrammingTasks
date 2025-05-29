@@ -1,6 +1,6 @@
-﻿namespace ObjectOrientedProgrammingTasks;
+﻿namespace ValidatorsLibrary;
 
-static class NumberValidator
+public static class NumberValidator
 {
     private const int _minValue = 1;
     private const int _maxValue = 100;

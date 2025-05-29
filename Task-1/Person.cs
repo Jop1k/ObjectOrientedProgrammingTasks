@@ -1,6 +1,6 @@
-﻿namespace ObjectOrientedProgrammingTasks;
+﻿namespace FirstTask;
 
-internal record Person
+internal class Person
 {
     public string Name { get; init; }
 
