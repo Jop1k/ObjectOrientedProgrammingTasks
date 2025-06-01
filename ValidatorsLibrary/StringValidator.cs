@@ -50,13 +50,9 @@ public class StringValidator
 
     public StringValidator IsRussianLetters()
     {
-        foreach (char letter in VerifiableString.ToLower())
+        if (!VerifiableString.All(letter => ('А' <= letter && letter <= 'я') || letter == 'ё' || letter == 'Ё'))
         {
-            if (!('а' <= letter && letter <= 'я' || letter == 'ё'))
-            {
-                _validationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
-                break;
-            }
+            _validationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
         }
 
         return this;
@@ -64,7 +60,7 @@ public class StringValidator
 
     public StringValidator IsNumber()
     {
-        foreach(char symbol in VerifiableString)
+        foreach (char symbol in VerifiableString)
         {
             if (!char.IsDigit(symbol))
             {
