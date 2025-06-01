@@ -6,9 +6,10 @@ internal class Program
 {
     static void Main()
     {
-        int amount = NumberValidator.Validation("Введите количество создаваемых вами Person: ");
+        int amount = ConsoleInputHelper.TryReadValidNumber();
 
-        Helper.CreateListOfNames(amount)
+        Enumerable.Range(0, amount)
+            .Select(_ => ConsoleInputHelper.TryReadValidName())
             .Select(name => new Person(name))
             .ToList()
             .ForEach(person => Console.WriteLine($"Привет! Меня зовут {person}"));

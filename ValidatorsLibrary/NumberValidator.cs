@@ -1,48 +1,38 @@
 ﻿namespace ValidatorsLibrary;
 
-public static class NumberValidator
+public class NumberValidator
 {
-    private const int _minValue = 1;
-    private const int _maxValue = 100;
+    private readonly ValidationResult _validationResult = new();
 
-    public static int Validation(string text = "Введите число: ")
+    public int VerifiableNumber { get; }
+
+    public NumberValidator(int verifiableNumber)
     {
-        while (true)
-        {
-            Console.Write(text);
-            string? potentialNumber = Console.ReadLine();
-
-            if (TryValidateNumber(potentialNumber, out int number, out string? errorMessage))
-            {
-                return number;
-            }
-
-            Console.WriteLine(errorMessage);
-            Console.WriteLine("Повторите попытку!");
-        }
+        VerifiableNumber = verifiableNumber;
     }
 
-    private static bool TryValidateNumber(string? inputValue, out int number, out string? errorMessage)
+    public NumberValidator MinValue(int minValue)
     {
-        errorMessage = null;
-
-        if (!int.TryParse(inputValue, out number))
+        if (VerifiableNumber < minValue)
         {
-            errorMessage = "Ошибка: не удалось преобразовать введенные данные в целое число!";
-            return false;
+            _validationResult.ErrorValidate($"Ошибка: число не должно быть меньше {minValue}!");
         }
 
-        if (!CheckCorrectRangeOfValues(number))
-        {
-            errorMessage = $"Ошибка: число не должно быть меньше {_minValue} или больше {_maxValue}!";
-            return false;
-        }
-
-        return true;
+        return this;
     }
 
-    private static bool CheckCorrectRangeOfValues(int number)
+    public NumberValidator MaxValue(int maxValue)
     {
-        return _minValue <= number && number <= _maxValue;
+        if (VerifiableNumber > maxValue)
+        {
+            _validationResult.ErrorValidate($"Ошибка: число не должно быть больше {maxValue}!");
+        }
+
+        return this;
+    }
+
+    public ValidationResult Validate()
+    {
+        return _validationResult;
     }
 }
