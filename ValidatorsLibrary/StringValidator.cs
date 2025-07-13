@@ -2,7 +2,7 @@
 
 public class StringValidator
 {
-    private readonly ValidationResult _validationResult = new();
+    public ValidationResult ValidationResult { get; } = new();
 
     public string VerifiableString { get; }
 
@@ -22,7 +22,7 @@ public class StringValidator
     {
         if (VerifiableString.Length < minLength)
         {
-            _validationResult.ErrorValidate($"Ошибка: минимальная длинна строки должна составлять {minLength} символов!");
+            ValidationResult.ErrorValidate($"Ошибка: минимальная длинна строки должна составлять {minLength} символов!");
         }
 
         return this;
@@ -32,7 +32,7 @@ public class StringValidator
     {
         if (VerifiableString.Length > maxLength)
         {
-            _validationResult.ErrorValidate($"Ошибка: максимальная длинна строки должна составлять {maxLength} символов!");
+            ValidationResult.ErrorValidate($"Ошибка: максимальная длинна строки должна составлять {maxLength} символов!");
         }
 
         return this;
@@ -42,7 +42,7 @@ public class StringValidator
     {
         if (string.IsNullOrWhiteSpace(VerifiableString))
         {
-            _validationResult.ErrorValidate("Ошибка: вы ничего не ввели!");
+            ValidationResult.ErrorValidate("Ошибка: вы ничего не ввели!");
         }
 
         return this;
@@ -52,7 +52,7 @@ public class StringValidator
     {
         if (!VerifiableString.All(letter => ('А' <= letter && letter <= 'я') || letter == 'ё' || letter == 'Ё'))
         {
-            _validationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
+            ValidationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
         }
 
         return this;
@@ -64,16 +64,11 @@ public class StringValidator
         {
             if (!char.IsDigit(symbol))
             {
-                _validationResult.ErrorValidate("Ошибка: это не число!");
+                ValidationResult.ErrorValidate("Ошибка: это не число!");
                 break;
             }
         }
 
         return this;
-    }
-
-    public ValidationResult Validate()
-    {
-        return _validationResult;
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstTask", "Task-1\FirstTask.csproj", "{772919B3-1E61-4466-9706-E9C6976BB8C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatorsLibrary", "ValidatorsLibrary\ValidatorsLibrary.csproj", "{9C7DABD0-2F5F-45BC-B0A1-23B5E3C442B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatorLibrary", "ValidatorsLibrary\ValidatorLibrary.csproj", "{9C7DABD0-2F5F-45BC-B0A1-23B5E3C442B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

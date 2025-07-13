@@ -2,7 +2,7 @@
 
 internal class Person
 {
-    public string Name { get; init; }
+    public string Name { get; }
 
     public Person (string name) => Name = name;
 

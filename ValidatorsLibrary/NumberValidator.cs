@@ -2,7 +2,7 @@
 
 public class NumberValidator
 {
-    private readonly ValidationResult _validationResult = new();
+    public ValidationResult ValidationResult { get; } = new();
 
     public int VerifiableNumber { get; }
 
@@ -15,7 +15,7 @@ public class NumberValidator
     {
         if (VerifiableNumber < minValue)
         {
-            _validationResult.ErrorValidate($"Ошибка: число не должно быть меньше {minValue}!");
+            ValidationResult.ErrorValidate($"Ошибка: число не должно быть меньше {minValue}!");
         }
 
         return this;
@@ -25,14 +25,9 @@ public class NumberValidator
     {
         if (VerifiableNumber > maxValue)
         {
-            _validationResult.ErrorValidate($"Ошибка: число не должно быть больше {maxValue}!");
+            ValidationResult.ErrorValidate($"Ошибка: число не должно быть больше {maxValue}!");
         }
 
         return this;
-    }
-
-    public ValidationResult Validate()
-    {
-        return _validationResult;
     }
 }

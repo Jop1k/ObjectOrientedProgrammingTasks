@@ -8,7 +8,7 @@ internal static class ConsoleInputHelper
         {
             int number = TryReadNumber();
 
-            ValidationResult result = new NumberValidator(number).MinValue(1).MaxValue(20).Validate();
+            ValidationResult result = new NumberValidator(number).MinValue(1).MaxValue(20).ValidationResult;
 
             if (result.IsValid)
             {
@@ -17,24 +17,24 @@ internal static class ConsoleInputHelper
 
             result.PrintErrors();
         }
+    }
 
-        int TryReadNumber()
+    private static int TryReadNumber()
+    {
+        while (true)
         {
-            while (true)
+            Console.Write("Введите количество создаваемых Person: ");
+            string? potentialNumber = Console.ReadLine();
+
+            ValidationResult result = new StringValidator(potentialNumber!).IsNotNullOrWhiteSpace().IsNumber().ValidationResult;
+
+            if (result.IsValid)
             {
-                Console.Write("Введите количество создаваемых Person: ");
-                string? potentialNumber = Console.ReadLine();
-
-                ValidationResult result = new StringValidator(potentialNumber!).IsNotNullOrWhiteSpace().IsNumber().Validate();
-
-                if (result.IsValid)
-                {
-                    return int.Parse(potentialNumber!);
-                }
-
-                result.PrintErrors();
-                Console.WriteLine("Повторите попытку!");
+                return int.Parse(potentialNumber!);
             }
+
+            result.PrintErrors();
+            Console.WriteLine("Повторите попытку!");
         }
     }
 
@@ -52,7 +52,7 @@ internal static class ConsoleInputHelper
                 .IsRussianLetters()
                 .MinLength(2)
                 .MaxLength(16)
-                .Validate();
+                .ValidationResult;
 
             if (result.IsValid)
             {

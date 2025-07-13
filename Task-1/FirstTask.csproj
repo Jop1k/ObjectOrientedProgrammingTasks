@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ValidatorsLibrary\ValidatorsLibrary.csproj" />
+    <ProjectReference Include="..\ValidatorsLibrary\ValidatorLibrary.csproj" />
   </ItemGroup>
 
 </Project>
