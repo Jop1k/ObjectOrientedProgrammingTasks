@@ -1,6 +1,9 @@
-﻿namespace FirstTask;
+﻿using ValidatorLibrary;
+using ExtensionMethods;
 
-internal static class ConsoleInputHelper
+namespace Helper;
+
+public static class ConsoleInputHelper
 {
     public static int TryReadValidNumber()
     {
@@ -56,7 +59,7 @@ internal static class ConsoleInputHelper
 
             if (result.IsValid)
             {
-                return char.ToUpper(validator.VerifiableString[0]) + validator.VerifiableString[1..].ToLower();
+                return validator.VerifiableString.Сapitalize();
             }
 
             result.PrintErrors();

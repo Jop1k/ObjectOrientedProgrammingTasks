@@ -1,4 +1,4 @@
-﻿global using ValidatorsLibrary;
+﻿using Helper;
 
 namespace FirstTask;
 

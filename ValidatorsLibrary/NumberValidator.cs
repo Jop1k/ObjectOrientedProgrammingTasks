@@ -1,4 +1,4 @@
-﻿namespace ValidatorsLibrary;
+﻿namespace ValidatorLibrary;
 
 public class NumberValidator
 {
