@@ -11,14 +11,17 @@ public static class ConsoleInputHelper
         {
             int number = TryReadNumber();
 
-            ValidationResult result = new NumberValidator(number).MinValue(1).MaxValue(20).ValidationResult;
+            ValidationResult result = new NumberValidator(number)
+                .MinValue(1)
+                .MaxValue(20)
+                .ValidationResult;
 
             if (result.IsValid)
             {
                 return number;
             }
 
-            result.PrintErrors();
+            ConsoleLogger.LogValidationErrors(result);
         }
     }
 
@@ -29,14 +32,17 @@ public static class ConsoleInputHelper
             Console.Write("Введите количество создаваемых Person: ");
             string potentialNumber = Console.ReadLine()!;
 
-            ValidationResult result = new StringValidator(potentialNumber).IsNotNullOrWhiteSpace().IsNumber().ValidationResult;
+            ValidationResult result = new StringValidator(potentialNumber)
+                .IsNotNullOrWhiteSpace()
+                .IsNumber()
+                .ValidationResult;
 
             if (result.IsValid)
             {
                 return int.Parse(potentialNumber);
             }
 
-            result.PrintErrors();
+            ConsoleLogger.LogValidationErrors(result);
             Console.WriteLine("Повторите попытку!");
         }
     }
@@ -46,9 +52,9 @@ public static class ConsoleInputHelper
         while (true)
         {
             Console.Write("Введите имя: ");
-            string? name = Console.ReadLine();
+            string name = Console.ReadLine()!;
 
-            var validator = new StringValidator(name!);
+            var validator = new StringValidator(name);
 
             ValidationResult result = validator
                 .IsNotNullOrWhiteSpace()
@@ -62,7 +68,7 @@ public static class ConsoleInputHelper
                 return validator.VerifiableString.Сapitalize();
             }
 
-            result.PrintErrors();
+            ConsoleLogger.LogValidationErrors(result);
             Console.WriteLine("Повторите попытку!");
         }
     }

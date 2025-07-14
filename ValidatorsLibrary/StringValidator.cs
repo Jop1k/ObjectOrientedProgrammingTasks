@@ -12,7 +12,7 @@ public class StringValidator
     {
         if (VerifiableString.Length < minLength)
         {
-            ValidationResult.ErrorValidate($"Ошибка: минимальная длинна строки должна составлять {minLength} символов!");
+            ValidationResult.AddError(ValidationError.IncorrectLength, $"минимальная длинна строки должна составлять {minLength} символов!");
         }
 
         return this;
@@ -22,7 +22,7 @@ public class StringValidator
     {
         if (VerifiableString.Length > maxLength)
         {
-            ValidationResult.ErrorValidate($"Ошибка: максимальная длинна строки должна составлять {maxLength} символов!");
+            ValidationResult.AddError(ValidationError.IncorrectLength, $"максимальная длинна строки должна составлять {maxLength} символов!");
         }
 
         return this;
@@ -32,7 +32,7 @@ public class StringValidator
     {
         if (string.IsNullOrWhiteSpace(VerifiableString))
         {
-            ValidationResult.ErrorValidate("Ошибка: вы ничего не ввели!");
+            ValidationResult.AddError(ValidationError.IncorrectString, "вы ничего не ввели!");
         }
 
         return this;
@@ -46,7 +46,7 @@ public class StringValidator
 
         if (!VerifiableString.ToLower().All(letter => russianLetter.Contains(letter)))
         {
-            ValidationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
+            ValidationResult.AddError(ValidationError.IncorrectNationalLetters, "строка должна содержать только русские буквы (без пробелов)!");
         }
 
         return this;
@@ -58,7 +58,7 @@ public class StringValidator
         {
             if (!char.IsDigit(symbol))
             {
-                ValidationResult.ErrorValidate("Ошибка: это не число!");
+                ValidationResult.AddError(ValidationError.IncorrectValue, "это не число!");
                 break;
             }
         }
