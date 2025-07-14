@@ -6,17 +6,7 @@ public class StringValidator
 
     public string VerifiableString { get; }
 
-    public StringValidator(string verifiableString)
-    {
-        if (verifiableString != null)
-        {
-            VerifiableString = verifiableString.Trim();
-        }
-        else
-        {
-            VerifiableString = string.Empty;
-        }
-    }
+    public StringValidator(string verifiableString) => VerifiableString = verifiableString;
 
     public StringValidator MinLength(int minLength)
     {
@@ -50,7 +40,11 @@ public class StringValidator
 
     public StringValidator IsRussianLetters()
     {
-        if (!VerifiableString.All(letter => ('А' <= letter && letter <= 'я') || letter == 'ё' || letter == 'Ё'))
+        char[] russianLetter = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж',
+            'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т',
+            'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'];
+
+        if (!VerifiableString.ToLower().All(letter => russianLetter.Contains(letter)))
         {
             ValidationResult.ErrorValidate("Ошибка: строка должна содержать только русские буквы (без пробелов)!");
         }

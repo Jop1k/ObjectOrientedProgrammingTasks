@@ -1,5 +1,10 @@
 ﻿namespace ValidatorLibrary;
 
+enum ValidationStatus
+{
+    
+}
+
 public class ValidationResult
 {
     private List<string> Errors { get; } = [];
@@ -13,7 +18,7 @@ public class ValidationResult
         IsValid = false;
     }
 
-    public void PrintErrors() // завязывается на консоли + за это может отвечать логгер!
+    public void PrintErrors()
     {
         Errors.ForEach(error => Console.WriteLine(error));
     }

@@ -27,13 +27,13 @@ public static class ConsoleInputHelper
         while (true)
         {
             Console.Write("Введите количество создаваемых Person: ");
-            string? potentialNumber = Console.ReadLine();
+            string potentialNumber = Console.ReadLine()!;
 
-            ValidationResult result = new StringValidator(potentialNumber!).IsNotNullOrWhiteSpace().IsNumber().ValidationResult;
+            ValidationResult result = new StringValidator(potentialNumber).IsNotNullOrWhiteSpace().IsNumber().ValidationResult;
 
             if (result.IsValid)
             {
-                return int.Parse(potentialNumber!);
+                return int.Parse(potentialNumber);
             }
 
             result.PrintErrors();
