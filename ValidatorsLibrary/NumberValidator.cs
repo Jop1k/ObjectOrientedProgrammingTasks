@@ -12,7 +12,7 @@ public class NumberValidator
     {
         if (VerifiableNumber < minValue)
         {
-            ValidationResult.AddError(ValidationError.IncorrectValue, $"число не должно быть меньше {minValue}!");
+            ValidationResult.AddError(ValidationError.IncorrectValue, $"the number should not be less than {minValue}!");
         }
 
         return this;
@@ -22,7 +22,7 @@ public class NumberValidator
     {
         if (VerifiableNumber > maxValue)
         {
-            ValidationResult.AddError(ValidationError.IncorrectValue, $"число не должно быть больше {maxValue}!");
+            ValidationResult.AddError(ValidationError.IncorrectValue, $"the number should not be more than {maxValue}!");
         }
 
         return this;
