@@ -1,6 +1,6 @@
 ﻿namespace ValidatorLibrary;
 
-internal enum ValidationError
+public enum ValidationError
 {
     IncorrectLength,
     IncorrectNationalLetters,

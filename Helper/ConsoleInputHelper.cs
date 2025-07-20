@@ -21,28 +21,7 @@ public static class ConsoleInputHelper
                 return number;
             }
 
-            ConsoleLogger.LogValidationErrors(result);
-        }
-    }
-
-    private static int TryReadNumber()
-    {
-        while (true)
-        {
-            Console.Write("Введите количество создаваемых Person: ");
-            string potentialNumber = Console.ReadLine()!;
-
-            ValidationResult result = new StringValidator(potentialNumber)
-                .IsNotNullOrWhiteSpace()
-                .IsNumber()
-                .ValidationResult;
-
-            if (result.IsValid)
-            {
-                return int.Parse(potentialNumber);
-            }
-
-            ConsoleLogger.LogValidationErrors(result);
+            PrintErrors(result);
             Console.WriteLine("Повторите попытку!");
         }
     }
@@ -68,7 +47,44 @@ public static class ConsoleInputHelper
                 return validator.VerifiableString.Сapitalize();
             }
 
-            ConsoleLogger.LogValidationErrors(result);
+            PrintErrors(result);
+            Console.WriteLine("Повторите попытку!");
+        }
+    }
+
+    private static void PrintErrors(ValidationResult result)
+    {
+        foreach (var error in result.Errors)
+        {
+            Console.WriteLine($"Validation error: {error.error} | Error message: {error.errorMessage}");
+        }
+    }
+
+    private static int TryReadNumber()
+    {
+        while (true)
+        {
+            Console.Write("Введите количество создаваемых Person: ");
+            string potentialNumber = Console.ReadLine()!;
+
+            ValidationResult result = new StringValidator(potentialNumber)
+                .IsNotNullOrWhiteSpace()
+                .IsNumber()
+                .ValidationResult;
+
+            if (result.IsValid)
+            {
+                try
+                {
+                    return int.Parse(potentialNumber);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            PrintErrors(result);
             Console.WriteLine("Повторите попытку!");
         }
     }
