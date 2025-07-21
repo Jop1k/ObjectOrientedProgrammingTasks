@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj" />
-    <ProjectReference Include="..\ValidatorsLibrary\ValidatorLibrary.csproj" />
+    <ProjectReference Include="..\ValidatorLibrary\ValidatorLibrary.csproj" />
   </ItemGroup>
 
 </Project>
