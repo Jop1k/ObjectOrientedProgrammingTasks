@@ -8,5 +8,5 @@ internal class Person
 
     public override string ToString() => $"Hello! My name is {Name}";
 
-    ~Person() => Name = "";
+    ~Person() => Name = string.Empty;
 }
