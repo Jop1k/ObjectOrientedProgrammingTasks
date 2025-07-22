@@ -37,7 +37,7 @@ public static class ConsoleHelper
 
             ValidationResult result = validator
                 .IsNotNullOrWhiteSpace()
-                .IsRussianLetters()
+                .IsEnglishLetters()
                 .MinLength(2)
                 .MaxLength(16)
                 .ValidationResult;
