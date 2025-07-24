@@ -1,4 +1,4 @@
-﻿namespace FirstTask;
+﻿namespace FifthTask;
 
 internal class Person
 {
@@ -6,5 +6,5 @@ internal class Person
 
     public Person(string name) => Name = name;
 
-    public override string ToString() => $"Hello! My name is {Name}";
+    public override string ToString() => Name;
 }
