@@ -16,11 +16,11 @@ internal class Program
         {
             if (person is Teacher teacher)
             {
-                teacher.Explain();
+                Console.WriteLine($"{teacher}: {teacher.Explain()}");
             }
             else if (person is Student student)
             {
-                student.Study();
+                Console.WriteLine($"{student}: {student.Study()}");
             }
         }
     }
