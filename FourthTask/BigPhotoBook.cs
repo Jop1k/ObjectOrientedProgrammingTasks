@@ -1,8 +1,6 @@
 ﻿namespace FourthTask;
 
-internal class BigPhotoBook
+internal class BigPhotoBook : PhotoBook
 {
-    public int NumPages { get; private set; }
-
     public BigPhotoBook() => NumPages = 64;
 }
