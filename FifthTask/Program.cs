@@ -14,14 +14,14 @@ internal class Program
 
         foreach (var person in persons)
         {
-            if (person is Teacher teacher)
+            var message = person switch
             {
-                Console.WriteLine($"{teacher}: {teacher.Explain()}");
-            }
-            else if (person is Student student)
-            {
-                Console.WriteLine($"{student}: {student.Study()}");
-            }
+                Teacher teacher => $"{teacher}: {teacher.Explain()}",
+                Student student => $"{student}: {student.Study()}",
+                _ => "Unknown"
+            };
+
+            Console.WriteLine(message);
         }
     }
 }
