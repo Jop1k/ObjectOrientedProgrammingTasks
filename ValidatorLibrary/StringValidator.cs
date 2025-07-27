@@ -52,6 +52,19 @@ public class StringValidator
         return this;
     }
 
+    public StringValidator IsEnglishLetters()
+    {
+        char[] englishLetter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+        if (!VerifiableString.ToLower().All(letter => englishLetter.Contains(letter)))
+        {
+            ValidationResult.AddError(ValidationError.IncorrectNationalLetters, "the line must contain only english letters (no spaces)!");
+        }
+
+        return this;
+    }
+
     public StringValidator IsNumber()
     {
         foreach (char symbol in VerifiableString)

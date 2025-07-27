@@ -1,6 +1,6 @@
 ﻿using Helper;
 
-namespace FirstTask;
+namespace SecondTask;
 
 internal class Program
 {

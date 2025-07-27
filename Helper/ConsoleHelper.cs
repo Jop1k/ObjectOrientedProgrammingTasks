@@ -3,7 +3,7 @@ using ExtensionMethods;
 
 namespace Helper;
 
-public static class ConsoleInputHelper
+public static class ConsoleHelper
 {
     public static int TryReadValidNumber()
     {
@@ -22,7 +22,7 @@ public static class ConsoleInputHelper
             }
 
             PrintErrors(result);
-            Console.WriteLine("Повторите попытку!");
+            Console.WriteLine("Please try again!");
         }
     }
 
@@ -30,14 +30,14 @@ public static class ConsoleInputHelper
     {
         while (true)
         {
-            Console.Write("Введите имя: ");
+            Console.Write("Enter name: ");
             string name = Console.ReadLine()!;
 
             var validator = new StringValidator(name);
 
             ValidationResult result = validator
                 .IsNotNullOrWhiteSpace()
-                .IsRussianLetters()
+                .IsEnglishLetters()
                 .MinLength(2)
                 .MaxLength(16)
                 .ValidationResult;
@@ -48,7 +48,7 @@ public static class ConsoleInputHelper
             }
 
             PrintErrors(result);
-            Console.WriteLine("Повторите попытку!");
+            Console.WriteLine("Please try again!");
         }
     }
 
@@ -64,7 +64,7 @@ public static class ConsoleInputHelper
     {
         while (true)
         {
-            Console.Write("Введите количество создаваемых Person: ");
+            Console.Write("Enter the number of persons to create: ");
             string potentialNumber = Console.ReadLine()!;
 
             ValidationResult result = new StringValidator(potentialNumber)
@@ -85,7 +85,7 @@ public static class ConsoleInputHelper
             }
 
             PrintErrors(result);
-            Console.WriteLine("Повторите попытку!");
+            Console.WriteLine("Please try again!");
         }
     }
 }
