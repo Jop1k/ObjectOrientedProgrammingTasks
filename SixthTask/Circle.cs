@@ -4,7 +4,7 @@ internal class Circle : Shape
 {
     protected double _radius;
 
-    public Circle(double radius, double xCoordinate = 0, double yCoordinate = 0) : base(xCoordinate, yCoordinate)
+    public Circle(double radius, Location location) : base(location)
     {
         _radius = radius;
     }

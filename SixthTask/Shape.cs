@@ -2,13 +2,13 @@
 
 internal abstract class Shape
 {
-    protected Location _c;
+    protected Location _location;
 
-    protected Shape(double xCoordinate = 0, double yCoordinate = 0) => _c = new Location(xCoordinate, yCoordinate);
+    protected Shape(Location location) => _location = location;
 
     public abstract double Area();
 
     public abstract double Perimeter();
 
-    public override string ToString() => _c.ToString();
+    public override string ToString() => $"Location: {_location.ToString()}\nType: {GetType().Name}";
 }

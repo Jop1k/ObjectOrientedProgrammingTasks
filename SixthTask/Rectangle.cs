@@ -7,7 +7,7 @@ internal class Rectangle : Shape
     protected double _height;
     protected double _width;
 
-    public Rectangle(double height, double width, double xCoordinate = 0, double yCoordinate = 0) : base(xCoordinate, yCoordinate)
+    public Rectangle(double height, double width, Location location) : base(location)
     {
          _width = width;
         _height = height;
