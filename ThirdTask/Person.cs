@@ -2,7 +2,7 @@
 
 internal class Person
 {
-    public int Age { get; set; }
+    public required int Age { get; init; }
 
     public void Greet() => Console.WriteLine("Hello!");
 }
