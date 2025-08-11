@@ -1,6 +1,6 @@
 ﻿using Helper;
 
-namespace SecondTask;
+namespace Task2PersonLifecycle;
 
 internal class Program
 {

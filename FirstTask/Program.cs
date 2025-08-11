@@ -1,6 +1,6 @@
 ﻿using Helper;
 
-namespace FirstTask;
+namespace Task1PersonCollectionToString;
 
 internal class Program
 {

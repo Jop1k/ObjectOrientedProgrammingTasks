@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstTask", "FirstTask\FirstTask.csproj", "{772919B3-1E61-4466-9706-E9C6976BB8C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1PersonCollectionToString", "FirstTask\Task1PersonCollectionToString.csproj", "{772919B3-1E61-4466-9706-E9C6976BB8C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatorLibrary", "ValidatorLibrary\ValidatorLibrary.csproj", "{9C7DABD0-2F5F-45BC-B0A1-23B5E3C442B7}"
 EndProject
@@ -11,14 +11,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "Extensi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{A50FA4BC-FFEB-40B4-A124-0886273B8AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondTask", "SecondTask\SecondTask.csproj", "{E0E3CA1F-ECB6-48CC-9418-7582B2F2801D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2PersonLifecycle", "SecondTask\Task2PersonLifecycle.csproj", "{E0E3CA1F-ECB6-48CC-9418-7582B2F2801D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdTask", "ThirdTask\ThirdTask.csproj", "{706780DB-6C7B-4E77-934B-41EED5087707}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourthTask", "FourthTask\FourthTask.csproj", "{1576A00A-19B3-4A1B-ADBB-0FD062C41714}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifthTask", "FifthTask\FifthTask.csproj", "{1E5F680D-9EFF-4CE5-98F0-1FC4D0FEA9FB}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixthTask", "SixthTask\SixthTask.csproj", "{1D7CF496-3DB8-4D26-BF69-F490D6C39C6D}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EighthTask", "EighthTask\EighthTask.csproj", "{37ED6030-1171-4B17-ADEE-BF402A1AB58A}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeventhTask", "SeventhTask\SeventhTask.csproj", "{F73B8647-77CB-48F5-9356-EDECFAC22059}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3PersonStudentTeacher", "ThirdTask\Task3PersonStudentTeacher.csproj", "{706780DB-6C7B-4E77-934B-41EED5087707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4PhotoBook", "FourthTask\Task4PhotoBook.csproj", "{1576A00A-19B3-4A1B-ADBB-0FD062C41714}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5Inheritance", "FifthTask\Task5Inheritance.csproj", "{1E5F680D-9EFF-4CE5-98F0-1FC4D0FEA9FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6UMLDiagram", "SixthTask\Task6UMLDiagram.csproj", "{1D7CF496-3DB8-4D26-BF69-F490D6C39C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task8AbstractAnimal", "EighthTask\Task8AbstractAnimal.csproj", "{37ED6030-1171-4B17-ADEE-BF402A1AB58A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task7VehicleInterface", "SeventhTask\Task7VehicleInterface.csproj", "{F73B8647-77CB-48F5-9356-EDECFAC22059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additions", "Additions", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +80,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C7DABD0-2F5F-45BC-B0A1-23B5E3C442B7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8E0C0337-A306-42CE-8563-A585C1D7B62C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A50FA4BC-FFEB-40B4-A124-0886273B8AC4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52502506-7489-4C49-8271-1FA2EEFD313B}

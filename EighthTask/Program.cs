@@ -1,6 +1,6 @@
 ﻿using Helper;
 
-namespace EighthTask;
+namespace Task8AbstractAnimal;
 
 internal class Program
 {

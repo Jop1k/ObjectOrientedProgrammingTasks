@@ -1,4 +1,4 @@
-﻿namespace FourthTask;
+﻿namespace Task4PhotoBook;
 
 internal static class PhotoBookTest
 {

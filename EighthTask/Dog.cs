@@ -1,4 +1,4 @@
-﻿namespace EighthTask;
+﻿namespace Task8AbstractAnimal;
 
 internal class Dog : Animal
 {

@@ -1,6 +1,6 @@
 ﻿using Helper;
 
-namespace FifthTask;
+namespace Task5Inheritance;
 
 internal class Program
 {

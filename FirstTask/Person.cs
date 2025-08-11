@@ -1,4 +1,4 @@
-﻿namespace FirstTask;
+﻿namespace Task1PersonCollectionToString;
 
 internal class Person
 {

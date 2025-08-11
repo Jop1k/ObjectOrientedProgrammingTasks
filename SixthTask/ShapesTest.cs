@@ -1,4 +1,4 @@
-﻿namespace SixthTask;
+﻿namespace Task6UMLDiagram;
 
 internal static class ShapesTest
 {

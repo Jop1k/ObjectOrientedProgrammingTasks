@@ -1,4 +1,4 @@
-﻿namespace SixthTask;
+﻿namespace Task6UMLDiagram;
 
 internal class Circle : Shape
 {

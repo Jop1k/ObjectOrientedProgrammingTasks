@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace SixthTask;
+﻿namespace Task6UMLDiagram;
 
 internal class Rectangle : Shape
 {

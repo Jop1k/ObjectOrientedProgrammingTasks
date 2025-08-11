@@ -1,4 +1,4 @@
-﻿namespace SecondTask;
+﻿namespace Task2PersonLifecycle;
 
 internal class Person
 {

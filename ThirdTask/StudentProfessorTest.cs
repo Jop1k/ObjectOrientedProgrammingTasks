@@ -1,4 +1,4 @@
-﻿namespace ThirdTask;
+﻿namespace Task3PersonStudentTeacher;
 
 internal static class StudentProfessorTest
 {

@@ -1,4 +1,4 @@
-﻿namespace SeventhTask;
+﻿namespace Task7VehicleInterface;
 
 internal class Program
 {
