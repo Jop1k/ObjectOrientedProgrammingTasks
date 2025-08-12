@@ -62,12 +62,12 @@ public class ShopService
 
     public static Result ReceiveProduct(Shop shop, Product product, int quantity, decimal price)
     {
-        if (quantity < 0)
+        if (quantity < 0) // tests
         {
             return Result.Failure(Error.InvalidQuantity, "The quantity of products cannot be negative.");
         }
 
-        if (shop.Products.ContainsKey(product.Code))
+        if (shop.Products.ContainsKey(product.Code)) // tests
         {
             shop.Products[product.Code].Quantity += quantity;
             var changePriceResult = shop.ChangePrice(product.Code, price);
@@ -78,7 +78,7 @@ public class ShopService
         return addProductResult.IsSuccess ? Result.Success() : addProductResult;
     }
 
-    public static Result<Dictionary<Product, int>> FindPurchasableProducts(Shop shop, decimal budget)
+    public static Result<Dictionary<Product, int>> FindPurchasableProducts(Shop shop, decimal budget) // tests
     {
         if (budget < 0)
         {
