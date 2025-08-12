@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ResultPattern\ResultPattern.csproj" />
     <ProjectReference Include="..\Task9StoreManagement\Task9StoreManagement.csproj" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@ public class Shop(string name, int code, Address address)
 
     public Address Address { get; } = address;
 
-    public Result AddProduct(Product product, decimal price = 0, int quantity = 0)
+    public Result AddProduct(Product product, decimal price, int quantity)
     {
         if (_products.ContainsKey(product.Code))
         {
