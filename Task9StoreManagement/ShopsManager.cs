@@ -68,6 +68,8 @@ public class ShopsManager
 
     public Result DeliverProducts(Shop shop, params (int productCode, int quantity, decimal price)[] receivedProducts)
     {
+        var tempShop = new Shop("temporary shop", 0, new Address("", "", "", ""));
+
         foreach (var (productCode, quantity, price) in receivedProducts)
         {
             if (!_products.ContainsKey(productCode))
@@ -75,16 +77,21 @@ public class ShopsManager
                 return Result.Failure(Error.ProductNotFound, $"There is no product with code {productCode}.");
             }
 
-            var receivePorductResult = ShopService.ReceiveProduct(shop, _products[productCode], quantity, price);
+            var receivePorductResult = ShopService.ReceiveProduct(tempShop, _products[productCode], quantity, price);
             if (!receivePorductResult.IsSuccess)
             {
                 return receivePorductResult;
             }
         }
 
+        foreach (var (productCode, quantity, price) in receivedProducts)
+        {
+            ShopService.ReceiveProduct(shop, _products[productCode], quantity, price);
+        }
+
         return Result.Success();
     }
-
+ 
     public Result CreateShop(string name, int code, Address address)
     {
         if (_shops.ContainsKey(code))
