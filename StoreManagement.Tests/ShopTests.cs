@@ -5,7 +5,7 @@ namespace Task9StoreManagement.Tests;
 public class ShopTests
 {
     [Fact]
-    public void AddProduct_CreateProduct_Success()
+    public void AddProduct_PassingCorrectValue_Success()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banan", 0);

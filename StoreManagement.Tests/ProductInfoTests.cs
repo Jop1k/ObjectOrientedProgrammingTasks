@@ -3,7 +3,7 @@
 public class ProductInfoTests
 {
     [Fact]
-    public void Quantity_SetNegativeValue_ThrowsException()
+    public void Quantity_SetNegativeValue_ThrowsInvalidQuantityException()
     {
         var product = new Product("card", 0);
         var productInfo = new ProductInfo(product, 100, 10);
@@ -12,7 +12,7 @@ public class ProductInfoTests
     }
 
     [Fact]
-    public void Price_SetNegativeValue_ThrowsException()
+    public void Price_SetNegativeValue_ThrowsInvalidPriceException()
     {
         var product = new Product("book", 0);
         var productInfo = new ProductInfo(product, 100, 10);

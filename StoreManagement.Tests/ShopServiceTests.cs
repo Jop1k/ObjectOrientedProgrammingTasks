@@ -17,7 +17,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void CanBuyProducts_ProductNotFound()
+    public void CanBuyProducts_PassingNonExistentProductCode_ProductNotFound()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -27,7 +27,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void CanBuyProducts_InsufficientQuantity()
+    public void CanBuyProducts_PassingBigQuantityOfProduct_InsufficientQuantity()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product1 = new Product("Banana", 0);
@@ -41,7 +41,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void CanBuyProducts_InvalidQuantity()
+    public void CanBuyProducts_PassingNegativeQuantity_InvalidQuantity()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -65,7 +65,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void CalculateTheCost_ProductNotFound()
+    public void CalculateTheCost_PassingNonExistentProductCode_ProductNotFound()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -91,7 +91,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void BuyProducts_ProductNotFound()
+    public void BuyProducts_PassingNonExistentProductCode_ProductNotFound()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -176,7 +176,7 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void FindPurchasableProducts_Success()
+    public void FindPurchasableProducts_PassingCorrectValue_Success()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product1 = new Product("Banana", 0);

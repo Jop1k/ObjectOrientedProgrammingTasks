@@ -3,7 +3,7 @@
 public class ShopManagerTests
 {
     [Fact]
-    public void FindShopWithLowestPriceForCart_TwoShopsWithSamePrice_Success()
+    public void FindShopWithLowestPriceForCart_TwoShopsWithSameOrderPrice_Success()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -22,7 +22,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void FindShopWithLowestPriceForCart_OneShop_Success()
+    public void FindShopWithLowestPriceForCart_OneShopWithLowPrice_Success()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -40,7 +40,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void FindShopWithLowestPriceForCart_ShopsNotFound()
+    public void FindShopWithLowestPriceForCart_PassingBigQuantityOfProduct_ShopsNotFound()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -57,7 +57,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void FindShopWithLowestPriceForProduct_TwoShopsWithSamePrice_Success()
+    public void FindShopWithLowestPriceForProduct_TwoShopsWithSameOrderPrice_Success()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -75,7 +75,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void FindShopWithLowestPriceForProduct_OneShop_Success()
+    public void FindShopWithLowestPriceForProduct_OneShopWithLowPrice_Success()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -92,7 +92,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void FindShopWithLowestPriceForProduct_ShopsNotFound()
+    public void FindShopWithLowestPriceForProduct_PassingNonExistentProductCode_ShopsNotFound()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -105,7 +105,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void DeliverProducts_Success()
+    public void DeliverProducts_PassingCorrectValue_Success()
     {
         var shopManager = new ShopsManager();
         shopManager.CreateShop("shop1", 1, new Address("", "", "", ""));
@@ -149,9 +149,8 @@ public class ShopManagerTests
         Assert.Empty(shopManager.Shops[1].Products);
     }
 
-
     [Fact]
-    public void CreateShop_Success()
+    public void CreateShop_PassingNonExistentProductCode_Success()
     {
         var shopManager = new ShopsManager();
 
@@ -174,7 +173,7 @@ public class ShopManagerTests
     }
 
     [Fact]
-    public void CreateProduct_Success()
+    public void CreateProduct_PassingNonExistentProductCode_Success()
     {
         var shopManager = new ShopsManager();
 
