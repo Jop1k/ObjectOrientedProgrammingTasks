@@ -19,7 +19,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void AddProduct_CreateAnExistingProduct_Failure()
+    public void AddProduct_CreateAnExistingProduct_ProductAlreadyExists()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banan", 0);
@@ -31,7 +31,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void AddProduct_CreatingProductWithInvalidQuantity_Failure()
+    public void AddProduct_CreatingProductWithInvalidQuantity_InvalidQuantity()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banan", 0);
@@ -42,7 +42,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void AddProduct_CreatingProductWithInvalidPrice_Failure()
+    public void AddProduct_CreatingProductWithInvalidPrice_InvalidPrice()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banan", 0);
@@ -66,7 +66,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void RemoveProduct_PassingNonExistentProductCode_Failure()
+    public void RemoveProduct_PassingNonExistentProductCode_ProductNotFound()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -89,7 +89,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void ChangePrice_PassingNonExistentProductCode_Failure()
+    public void ChangePrice_PassingNonExistentProductCode_ProductNotFound()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
 
@@ -99,7 +99,7 @@ public class ShopTests
     }
 
     [Fact]
-    public void ChangePrice_PassingInvalidPrice_Failure()
+    public void ChangePrice_PassingInvalidPrice_InvalidPrice()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banan", 0);

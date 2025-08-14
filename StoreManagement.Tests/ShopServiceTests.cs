@@ -115,7 +115,46 @@ public class ShopServiceTests
     }
 
     [Fact]
-    public void ReceiveProduct_AddNewProductWithIncorrectQuantity_InvalidQuantity()
+    public void ReceiveProduct_AddNewProductWithIncorrectPrice_InvalidPrice()
+    {
+        var shop = new Shop("shop", 0, new Address("", "", "", ""));
+        var product = new Product("Banana", 0);
+
+        var result = ShopService.ReceiveProduct(shop, product, 10, -100);
+
+        Assert.Equal(Error.InvalidPrice, result.Error);
+        Assert.Empty(shop.Products);
+    }
+
+    [Fact]
+    public void ReceiveProduct_AddProduct_Success()
+    {
+        var shop = new Shop("shop", 0, new Address("", "", "", ""));
+        var product = new Product("Banana", 0);
+        shop.AddProduct(product, 50, 5);
+
+        var result = ShopService.ReceiveProduct(shop, product, 5, 100);
+
+        Assert.True(result.IsSuccess);
+        Assert.Equal(10, shop.Products[0].Quantity);
+        Assert.Equal(100, shop.Products[0].Price);
+    }
+
+    [Fact]
+    public void ReceiveProduct_AddProductWithIncorrectPrice_InvalidPrice()
+    {
+        var shop = new Shop("shop", 0, new Address("", "", "", ""));
+        var product = new Product("Banana", 0);
+        shop.AddProduct(product, 50, 5);
+
+        var result = ShopService.ReceiveProduct(shop, product, 10, -100);
+
+        Assert.Equal(Error.InvalidPrice, result.Error);
+        Assert.Equal(5, shop.Products[0].Quantity);
+    }
+
+    [Fact]
+    public void ReceiveProduct_PassingIncorrectQuantity_InvalidQuantity()
     {
         var shop = new Shop("shop", 0, new Address("", "", "", ""));
         var product = new Product("Banana", 0);
@@ -123,6 +162,33 @@ public class ShopServiceTests
         var result = ShopService.ReceiveProduct(shop, product, -1, 100);
 
         Assert.Equal(Error.InvalidQuantity, result.Error);
-        Assert.False(shop.Products.ContainsKey(0));
+        Assert.Empty(shop.Products);
+    }
+
+    [Fact]
+    public void FindMaxProductsWithinBudget_PassingIncorrectBudget_Failure()
+    {
+        var shop = new Shop("shop", 0, new Address("", "", "", ""));
+
+        var result = ShopService.FindMaxProductsWithinBudget(shop, -1000);
+
+        Assert.Equal(Error.InvalidPrice, result.Error);
+    }
+
+    [Fact]
+    public void FindPurchasableProducts_Success()
+    {
+        var shop = new Shop("shop", 0, new Address("", "", "", ""));
+        var product1 = new Product("Banana", 0);
+        var product2 = new Product("Apple", 1);
+        shop.AddProduct(product1, 100, 9);
+        shop.AddProduct(product2, 100, 11);
+
+        var result = ShopService.FindMaxProductsWithinBudget(shop, 1000);
+
+        Assert.True(result.IsSuccess);
+        Assert.Equal(2, result.Value!.Count);
+        Assert.Equal(9, result.Value[product1]);
+        Assert.Equal(10, result.Value[product2]);
     }
 }

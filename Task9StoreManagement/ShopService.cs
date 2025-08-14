@@ -9,11 +9,7 @@ public class ShopService
 
         if (canBuyProducts.IsSuccess)
         {
-            foreach (var (code, quantity) in products)
-            {
-                costs += shop.Products[code].Price * quantity;
-            }
-
+            costs = products.Sum(product => shop.Products[product.code].Price * product.quantity);
             return Result<decimal>.Success(costs);
         }
 
@@ -62,23 +58,29 @@ public class ShopService
 
     public static Result ReceiveProduct(Shop shop, Product product, int quantity, decimal price)
     {
-        if (quantity < 0) // tests
+        if (quantity < 0)
         {
             return Result.Failure(Error.InvalidQuantity, "The quantity of products cannot be negative.");
         }
 
-        if (shop.Products.ContainsKey(product.Code)) // tests
+        if (shop.Products.ContainsKey(product.Code))
         {
-            shop.Products[product.Code].Quantity += quantity;
             var changePriceResult = shop.ChangePrice(product.Code, price);
-            return changePriceResult.IsSuccess ? Result.Success() : changePriceResult;
+
+            if (!changePriceResult.IsSuccess)
+            {
+                return changePriceResult;
+            }
+
+            shop.Products[product.Code].Quantity += quantity;
+            return Result.Success();
         }
 
         var addProductResult = shop.AddProduct(product, price, quantity);
         return addProductResult.IsSuccess ? Result.Success() : addProductResult;
     }
 
-    public static Result<Dictionary<Product, int>> FindPurchasableProducts(Shop shop, decimal budget) // tests
+    public static Result<Dictionary<Product, int>> FindMaxProductsWithinBudget(Shop shop, decimal budget)
     {
         if (budget < 0)
         {
